@@ -7,7 +7,7 @@ const sdk = new ThirdwebSDK("goerli");
 
 const getScript = async (tokenId) => {
   // Your contract address from the dashboard
-  const contract = await sdk.getContract("0xE6941e50b986Bd4904B9B1865292053f2fF8adDf");
+  const contract = await sdk.getContract("0x5FEc9E32a7007f3A6A67fd48f8603F378a2c21dd");
   // Get the script from the contract
   const scriptStr = await contract.call("script");
   const hash = await contract.call("tokenToHash", parseInt(tokenId));
