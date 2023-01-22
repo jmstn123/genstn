@@ -2,7 +2,7 @@ import * as fs from "fs";
 import path from "path";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// Configure this to the network you deployed your contract to;
+// Configure this to the network you deployed your contract to ;
 const sdk = new ThirdwebSDK("goerli");
 
 const getScript = async (tokenId) => {
