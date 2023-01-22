@@ -50,7 +50,7 @@ let palettes = [
   [139, 168, 193], //metallic blue 4
   [218, 165, 32], //golden 5
   [255, 255, 255], //white 6
-  [255, 255, 255, 25], //ghost 7
+  [255, 255, 255, 115], //ghost 7
   [112, 38, 112], // midnight 8
 ];
 
@@ -66,7 +66,7 @@ let bgPalette;
 
 function setup() {
   createCanvas(1200, 1200);
- 
+
   noiseSeed(seed);
   // setup randomness
   crossover_x = int(decPairs[23] % 2);
@@ -83,11 +83,11 @@ function setup() {
   wobbliness = int(decPairs[21]+125);
   boing = int((decPairs[22] % 3)+1);
   boing_preserve = boing;
-  
-  
+
+
   straightness = int((decPairs[28] % 100)+300);
 
-  farness = int((decPairs[18] % 3)+1)/(6);
+  farness = int((decPairs[18] % 6)+3)/(14);
 
 
   if (
@@ -149,7 +149,7 @@ function draw() {
       y = map(noise(xoffset, yoffset), 0, farness, wobbliness, straightness);
     } else {
       straightness_chaos = int(random(525, 625));
-      y = map(noise(xoffset, yoffset), 0, 1, wobbliness, straightness_chaos);
+      y = map(noise(xoffset, yoffset), 0, 3/10, wobbliness, straightness_chaos);
     }
 
     vertex(height - y, height - x);
@@ -161,19 +161,17 @@ function draw() {
   if (chaos_toggle == 0) {
     yoffset += 0.005;
     vertex(height * crossover_x, width * crossover_y);
-
     vertex(height, height);
   } else {
-    yoffset += 0.055;
+    yoffset += 0.035;
     vertex(width, (sinoid * height) / int(random((3*height)/4, height)));
-    vertex(int(random(600, 2000)), height);
+    vertex(int(random(height, 2000)), height);
   }
 
   endShape(CLOSE);
 
-  stroke(25, 255, 25, 2);
+  stroke(25, 25, 25, 2);
 
-  for (i = 0; i < width; i += 5) {}
 }
 
 function doubleClicked() {
@@ -203,4 +201,3 @@ function keyPressed() {
     }
   }
 }
-
