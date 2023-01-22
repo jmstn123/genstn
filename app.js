@@ -27,7 +27,7 @@ app.use(express.static("public"));
 const storage = new ThirdwebStorage();
 const tokenImages = {};
 
-app.get("/token/:tokenId", async (req, res) => {
+app.get("/metadata/:tokenId", async (req, res) => {
   const hash = await getScript(req.params.tokenId);
 
   if (!tokenImages[`img_${req.params.tokenId}`]) {
