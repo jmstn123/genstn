@@ -39,10 +39,8 @@ app.get("/token/:tokenId", async (req, res) => {
       result
     );
   }
-
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
+  // respond with "hello world" when a GET request is made to the homepage
+app.get('/gm', (req, res) => {
   res.send('hello world')
 })
 
