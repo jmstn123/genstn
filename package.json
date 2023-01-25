@@ -32,6 +32,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^6.0.3",
     "fs": "^0.0.1-security",
+    "harp": "^0.46.1",
     "markdown-it": "^12.0.4",
     "node-p5": "^1.0.4",
     "node-pre-gyp": "^0.17.0",
