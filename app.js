@@ -45,9 +45,9 @@ app.get("/token/:tokenId", async (req, res) => {
   });
 });
 
-//app.get("*", (req, res) => {
-//  res.status(404).send("Not found");
-//});
+app.get("*", (req, res) => {
+  res.status(404).send("Not found");
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
