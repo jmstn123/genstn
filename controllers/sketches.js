@@ -3,11 +3,11 @@ import path from "path";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // Configure this to the network you deployed your contract to ;
-const sdk = new ThirdwebSDK("goerli");
+const sdk = new ThirdwebSDK("mainnet");
 
 const getScript = async (tokenId) => {
   // Your contract address from the dashboard
-  const contract = await sdk.getContract("0x5FEc9E32a7007f3A6A67fd48f8603F378a2c21dd");
+  const contract = await sdk.getContract("0xb9Df8c7c073BF6F1CD392874e340289EE974DD30");
   // Get the script from the contract
   const scriptStr = await contract.call("script");
   const hash = await contract.call("tokenToHash", parseInt(tokenId));
