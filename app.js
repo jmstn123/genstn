@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import handleBarsExpress from "express-handlebars";
 import path from "path";
 
-import { getScript } from "./controllers/sketches.js";
+//import { getScript } from "./controllers/sketches.js";
 import { saveImage } from "./controllers/images.js";
 import { ThirdwebStorage } from "@thirdweb-dev/storage";
 
@@ -30,17 +30,7 @@ const tokenImages = {};
 app.get("/token/:tokenId", async (req, res) => {
   
   if (req.params.tokenId < 64){
-  const hash = await getScript(req.params.tokenId);
-
-  if (!tokenImages[`img_${req.params.tokenId}`]) {
-    const buf = saveImage(hash, req.params.tokenId);
-
-    //const result = await storage.upload(buf);
-
-    //tokenImages[`img_${req.params.tokenId}`] = await storage.resolveScheme(
-     // result
-    //);
-  }
+  //const hash = await getScript(req.params.tokenId);
   
   res.render("piece", {
     scriptName: `mySketch`+req.params.tokenId+`.js`,
