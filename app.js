@@ -28,6 +28,8 @@ const storage = new ThirdwebStorage();
 const tokenImages = {};
 
 app.get("/token/:tokenId", async (req, res) => {
+  
+  if (req.params.tokenId < 64){
   const hash = await getScript(req.params.tokenId);
 
   if (!tokenImages[`img_${req.params.tokenId}`]) {
@@ -39,10 +41,11 @@ app.get("/token/:tokenId", async (req, res) => {
      // result
     //);
   }
-
+  
   res.render("piece", {
-    scriptName: `mySketch.js`,
-  });
+    scriptName: `mySketch`+req.params.tokenId+`.js`,
+  });}
+  else{res.status(404).send("Not found");}
 });
 
 app.get("*", (req, res) => {
