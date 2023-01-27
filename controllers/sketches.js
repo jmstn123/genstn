@@ -294,7 +294,7 @@ const getScript = async (tokenId) => {
   // Write the details for this token + the script to a file ../public/token/js/pieces/mySketch.js and await the result
   const filePath = path.resolve(
     path.dirname("."),
-    "./public/token/js/pieces/mySketch.js"
+    "./public/token/js/pieces/mySketch" + tokenId + ".js"
   );
 
   console.log("wrote file");
