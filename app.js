@@ -33,11 +33,11 @@ app.get("/token/:tokenId", async (req, res) => {
   if (!tokenImages[`img_${req.params.tokenId}`]) {
     const buf = saveImage(hash, req.params.tokenId);
 
-    const result = await storage.upload(buf);
+    //const result = await storage.upload(buf);
 
-    tokenImages[`img_${req.params.tokenId}`] = await storage.resolveScheme(
-      result
-    );
+    //tokenImages[`img_${req.params.tokenId}`] = await storage.resolveScheme(
+     // result
+    //);
   }
 
   res.render("piece", {
